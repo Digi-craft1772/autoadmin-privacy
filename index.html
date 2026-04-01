@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AutoAdmin AI - Privacy & Terms</title>
+
+<style>
+    :root {
+        --bg-gradient: linear-gradient(135deg, #0d6efd, #6610f2);
+        --text-color: #fff;
+        --card-bg: rgba(255,255,255,0.18);
+        --card-border: rgba(255,255,255,0.25);
+        --tab-bg: rgba(255,255,255,0.15);
+        --tab-hover: rgba(255,255,255,0.25);
+        --footer-opacity: 0.8;
+    }
+
+    /* DARK MODE VARIABLES */
+    body.dark {
+        --bg-gradient: linear-gradient(135deg, #141414, #1e1e1e);
+        --text-color: #e9e9e9;
+        --card-bg: rgba(255,255,255,0.07);
+        --card-border: rgba(255,255,255,0.12);
+        --tab-bg: rgba(255,255,255,0.08);
+        --tab-hover: rgba(255,255,255,0.14);
+        --footer-opacity: 0.5;
+    }
+
+    /* GLOBAL */
+    body {
+        margin: 0;
+        font-family: "Inter", Arial, sans-serif;
+        background: var(--bg-gradient);
+        min-height: 100vh;
+        color: var(--text-color);
+        padding-bottom: 40px;
+        transition: 0.4s ease;
+    }
+
+    /* HEADER */
+    header {
+        text-align: center;
+        padding: 50px 20px;
+        position: relative;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 36px;
+        font-weight: 700;
+    }
+
+    header p {
+        opacity: 0.9;
+        margin-top: 5px;
+        font-size: 16px;
+    }
+
+    /* Glow effect */
+    header::after {
+        content: "";
+        position: absolute;
+        top: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 250px;
+        height: 250px;
+        background: rgba(255,255,255,0.15);
+        filter: blur(90px);
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    /* DARK MODE toggle button */
+    .theme-toggle {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        cursor: pointer;
+        background: rgba(255,255,255,0.25);
+        padding: 10px 18px;
+        border-radius: 25px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255,255,255,0.3);
+        transition: 0.3s;
+    }
+
+    body.dark .theme-toggle {
+        background: rgba(255,255,255,0.08);
+        border-color: rgba(255,255,255,0.15);
+    }
+
+    /* TABS */
+    .tabs {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        gap: 15px;
+    }
+
+    .tab {
+        padding: 12px 26px;
+        background: var(--tab-bg);
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 600;
+        backdrop-filter: blur(12px);
+        transition: 0.3s;
+        border: 1px solid var(--card-border);
+        color: var(--text-color);
+    }
+
+    .tab:hover {
+        background: var(--tab-hover);
+    }
+
+    .tab.active {
+        background: white;
+        color: #0d6efd;
+    }
+
+    body.dark .tab.active {
+        background: #fff;
+        color: #000;
+    }
+
+    /* CONTENT CARDS */
+    .content-section {
+        max-width: 900px;
+        margin: 25px auto;
+        display: none;
+        background: var(--card-bg);
+        padding: 25px 30px;
+        border-radius: 20px;
+        backdrop-filter: blur(18px);
+        border: 1px solid var(--card-border);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        animation: fadeIn 0.3s ease;
+    }
+
+    .content-section.active {
+        display: block;
+    }
+
+    .content-section h2 {
+        color: var(--text-color);
+        font-size: 26px;
+    }
+
+    .content-section p {
+        color: var(--text-color);
+        line-height: 1.6;
+        opacity: 0.95;
+    }
+
+    /* FOOTER */
+    footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 15px;
+        font-size: 14px;
+        opacity: var(--footer-opacity);
+        transition: 0.3s;
+    }
+
+    /* fade animation */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 600px) {
+        header h1 { font-size: 28px; }
+        .tab { padding: 10px 20px; }
+        .content-section { padding: 20px; }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="theme-toggle" id="themeToggle">🌙 Dark Mode</div>
+    <h1>AutoAdmin AI</h1>
+    <p>Privacy Policy & Terms of Service</p>
+</header>
+
+<div class="tabs">
+    <div class="tab active" id="privacyTab">Privacy Policy</div>
+    <div class="tab" id="termsTab">Terms of Service</div>
+</div>
+
+<!-- PRIVACY POLICY -->
+<div class="content-section active" id="privacyContent">
+    <h2>Privacy Policy</h2>
+    <p>AutoAdmin AI is committed to protecting your personal information and ensuring transparency.</p>
+
+    <h3>Camera Permission</h3>
+    <p>The camera is used only for scanning or recognition features. No data is stored without permission.</p>
+
+    <h3>Email Collection</h3>
+    <p>Your Google Sign-In email helps us authenticate and manage your account.</p>
+
+    <h3>Google Gemini AI</h3>
+    <p>Inputs may be processed by Gemini to generate responses, but we don't store them permanently.</p>
+
+    <h3>Supabase & Google Cloud</h3>
+    <p>Your data may be stored securely on Supabase or Google Cloud servers.</p>
+
+    <h3>Policy Changes</h3>
+    <p>We may update this policy anytime. Changes will be reflected here.</p>
+
+    <h3>Contact</h3>
+    <p>Email: <b>kalavaimalik@gmail.com</b></p>
+</div>
+
+<!-- TERMS OF SERVICE -->
+<div class="content-section" id="termsContent">
+    <h2>Terms of Service</h2>
+
+    <h3>Acceptance</h3>
+    <p>Using AutoAdmin AI means you agree to our Terms and Privacy Policy.</p>
+
+    <h3>User Rules</h3>
+    <p>Avoid misuse, illegal activities, and security bypass attempts.</p>
+
+    <h3>Limitations</h3>
+    <p>Service is provided "as is" with no guaranteed uptime.</p>
+
+    <h3>Updates</h3>
+    <p>We may modify these terms as needed for service improvement.</p>
+
+    <h3>Contact</h3>
+    <p>Email: <b>kalavaimalik@gmail.com</b></p>
+</div>
+
+<footer>
+    © 2026 AutoAdmin AI — All Rights Reserved.
+</footer>
+
+<script>
+    // Tabs
+    const privacyTab = document.getElementById("privacyTab");
+    const termsTab = document.getElementById("termsTab");
+
+    const privacyContent = document.getElementById("privacyContent");
+    const termsContent = document.getElementById("termsContent");
+
+    privacyTab.onclick = () => {
+        privacyTab.classList.add("active");
+        termsTab.classList.remove("active");
+        privacyContent.classList.add("active");
+        termsContent.classList.remove("active");
+    };
+
+    termsTab.onclick = () => {
+        termsTab.classList.add("active");
+        privacyTab.classList.remove("active");
+        termsContent.classList.add("active");
+        privacyContent.classList.remove("active");
+    };
+
+    // DARK MODE TOGGLE
+    const body = document.body;
+    const themeToggle = document.getElementById("themeToggle");
+
+    // Auto-detect system theme
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        body.classList.add("dark");
+        themeToggle.textContent = "☀️ Light Mode";
+    }
+
+    themeToggle.onclick = () => {
+        body.classList.toggle("dark");
+        themeToggle.textContent = body.classList.contains("dark")
+            ? "☀️ Light Mode"
+            : "🌙 Dark Mode";
+    };
+</script>
+
+</body>
+</html>
